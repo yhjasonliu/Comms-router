@@ -1,0 +1,79 @@
+{
+  "rules": [
+    {
+      "client_id": "openloop-partner-a",
+      "program": "glp1",
+      "event_type": "appointment_booked",
+      "channels": ["sms", "email", "chat"],
+      "description": "GLP-1 patients at Partner A get full multi-channel confirmation on booking"
+    },
+    {
+      "client_id": "openloop-partner-a",
+      "program": "glp1",
+      "event_type": "appointment_reminder",
+      "channels": ["sms", "chat"],
+      "description": "GLP-1 appointment reminders at Partner A via SMS and chat — time-sensitive, skip email"
+    },
+    {
+      "client_id": "openloop-partner-a",
+      "program": "glp1",
+      "event_type": "refill_due",
+      "channels": ["email"],
+      "description": "GLP-1 refill reminders at Partner A via email — lower urgency"
+    },
+    {
+      "client_id": "openloop-partner-a",
+      "program": "mental_health",
+      "event_type": "appointment_booked",
+      "channels": ["email", "chat"],
+      "description": "Mental health patients at Partner A prefer email and chat — no SMS for privacy"
+    },
+    {
+      "client_id": "openloop-partner-a",
+      "program": "mental_health",
+      "event_type": "appointment_reminder",
+      "channels": ["chat"],
+      "description": "Mental health reminders at Partner A via chat only — most discreet channel"
+    },
+    {
+      "client_id": "openloop-partner-b",
+      "program": "glp1",
+      "event_type": "appointment_booked",
+      "channels": ["sms", "email"],
+      "description": "Partner B GLP-1 patients — no chat integration available at this client"
+    },
+    {
+      "client_id": "openloop-partner-b",
+      "event_type": "refill_due",
+      "channels": ["sms"],
+      "description": "Partner B prefers SMS for all refill reminders regardless of program"
+    },
+    {
+      "event_type": "appointment_booked",
+      "channels": ["sms", "email"],
+      "description": "Global default: appointment confirmations go to SMS and email"
+    },
+    {
+      "event_type": "appointment_reminder",
+      "channels": ["sms"],
+      "description": "Global default: reminders via SMS"
+    },
+    {
+      "event_type": "refill_due",
+      "channels": ["email"],
+      "description": "Global default: refill reminders via email"
+    },
+    {
+      "event_type": "prescription_ready",
+      "channels": ["sms", "chat"],
+      "description": "Global default: prescription pickup via SMS and chat — time-sensitive"
+    },
+    {
+      "event_type": "unknown_event",
+      "channels": ["email"],
+      "description": "Global fallback: unrecognized events route to email"
+    }
+  ],
+  "fallback_channel": "email",
+  "urgency_override_channel": "sms"
+}
